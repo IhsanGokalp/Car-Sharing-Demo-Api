@@ -1,0 +1,47 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.5'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+//	implementation 'org.hibernate:hibernate-core:6.1.5.Final'
+
+	// https://mvnrepository.com/artifact/org.hibernate/hibernate-spatial
+	implementation 'org.hibernate:hibernate-spatial:5.1.0.Final'
+	// https://mvnrepository.com/artifact/com.github.jmnarloch/modelmapper-spring-boot-starter
+	implementation 'com.github.jmnarloch:modelmapper-spring-boot-starter:1.1.0'
+	// https://mvnrepository.com/artifact/com.vividsolutions/jts
+	// https://mvnrepository.com/artifact/com.graphhopper.external/jackson-datatype-jts
+//	implementation 'com.graphhopper.external:jackson-datatype-jts:0.12-2.5-1'
+	implementation 'com.bedatadriven:jackson-datatype-jts:2.2'
+	implementation 'com.vividsolutions:jts:1.13'
+//	// https://mvnrepository.com/artifact/org.n52.jackson/jackson-datatype-jts
+//	implementation 'org.n52.jackson:jackson-datatype-jts:1.2.10'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.flywaydb:flyway-core'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'org.postgresql:postgresql'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

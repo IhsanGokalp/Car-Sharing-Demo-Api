@@ -1,0 +1,1 @@
+alter table rider_rides alter column occupied set default 0;
